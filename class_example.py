@@ -8,6 +8,7 @@ class Entity:
         self.x=0
         self.y=0
     
+    #Overriding basic method
     def __repr__(self):
         attr_str=", ".join(f"{k}={repr(v)}" for k,v in vars(self).items())
         return self.__class__.__name__+":\n"+attr_str+"\n"
@@ -45,7 +46,8 @@ class CyberAnimal(Animal,Microchip):
         super().__init__(**kwargs)
         Microchip.__init__(self)
         
-
+    def move(self, speed):
+        return super().move(speed*2)
         
     def __repr__(self,**kwargs):
         return super().__repr__()
@@ -54,10 +56,11 @@ class CyberAnimal(Animal,Microchip):
     
 
 thing=Entity()
-new_animal=Animal()
+new_animal=Animal(name="Bear")
 cyber_animal=CyberAnimal(name="Augmented Animal",legs=6, eyes=4)
 
 print(thing)
 print(new_animal)
 print(cyber_animal)
+new_animal.move(10)
 cyber_animal.move(10) #New cyber_animal has a method of the Animal parent.
