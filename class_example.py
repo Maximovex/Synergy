@@ -27,7 +27,7 @@ class Animal(Entity):
     def move(self,speed):
         self.x+=speed
         self.y+=speed
-        print (self.name,f"moved to new point x:{self.x}, y:{self.y}")
+        print (self.name,f"moved to a new point x:{self.x}, y:{self.y}")
 
     def __repr__(self):
         return super().__repr__()
